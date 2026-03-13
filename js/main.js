@@ -81,12 +81,12 @@
   if (!el) return;
 
   const lines = [
- 'Développeur Full-Stack capable de créer des solutions complètes',
-  'Backend & Frontend : développement efficace et fiable',
-  'Conception et intégration d’API REST fonctionnelles',
-  'TypeScript pour des applications modernes',
-  'Agile / Scrum pour des projets collaboratifs',
-  'Disponible pour alternance et nouveaux défis',
+ 'Développeur Full-Stack motivé',
+  'Backend & Frontend efficace',
+  'API REST & intégration',
+  'TypeScript appliqué',
+  'Agile / Scrum en pratique',
+  'Ouvert aux nouvelles opportunités',
   ];
 
   let li = 0, ci = 0, del = false;

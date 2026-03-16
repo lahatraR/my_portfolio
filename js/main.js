@@ -60,7 +60,9 @@
 
   function init() {
     resize();
-    particles = Array.from({ length: 80 }, () => new Particle());
+    // Réduire le nombre de particules sur mobile pour les performances
+    const count = window.innerWidth < 768 ? 30 : 80;
+    particles = Array.from({ length: count }, () => new Particle());
   }
 
   function loop() {
@@ -81,12 +83,12 @@
   if (!el) return;
 
   const lines = [
- 'Développeur Full-Stack motivé',
-  'Backend & Frontend efficace',
-  'API REST & intégration',
-  'TypeScript appliqué',
-  'Agile / Scrum en pratique',
-  'Ouvert aux nouvelles opportunités',
+    'Développeur Full-Stack motivé',
+    'Backend & Frontend efficace',
+    'API REST & intégration',
+    'TypeScript appliqué',
+    'Agile / Scrum en pratique',
+    'Ouvert aux nouvelles opportunités',
   ];
 
   let li = 0, ci = 0, del = false;
@@ -107,14 +109,15 @@
 })();
 
 // ── Navigation ───────────────────────────────────────────────────
-const nav        = document.getElementById('nav');
-const hamburger  = document.getElementById('hamburger');
-const navLinks   = document.getElementById('navLinks');
+const nav       = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
 
+// { passive: true } évite l'avertissement de performance navigateur
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
   updateActiveNav();
-});
+}, { passive: true });
 
 hamburger?.addEventListener('click', () => {
   navLinks.classList.toggle('open');
@@ -155,22 +158,103 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ── Contact Form ─────────────────────────────────────────────────
-document.getElementById('contactForm')?.addEventListener('submit', e => {
+// ── Contact Form (Formspree) ──────────────────────────────────────
+//
+// CONFIGURATION :
+//   1. Créez un compte gratuit sur https://formspree.io
+//   2. Cliquez "New Form", entrez votre email de destination
+//   3. Copiez l'ID du formulaire (ex: "xabcde12") et remplacez YOUR_FORM_ID ci-dessous
+//
+const FORMSPREE_ID = 'mjgaayoy';
+
+function showFormStatus(type, msg) {
+  const el = document.getElementById('formStatus');
+  if (!el) return;
+  el.className = `form-status form-status--${type}`;
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function clearFormStatus() {
+  const el = document.getElementById('formStatus');
+  if (!el) return;
+  el.style.display = 'none';
+  el.textContent = '';
+  el.className = 'form-status';
+}
+
+document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn  = form.querySelector('button[type="submit"]');
+
+  // Validation côté client
+  const name    = form.name.value.trim();
+  const email   = form.email.value.trim();
+  const message = form.message.value.trim();
+
+  if (!name || !email || !message) {
+    showFormStatus('error', 'Veuillez remplir tous les champs obligatoires (Nom, Email, Message).');
+    return;
+  }
+  if (message.length < 10) {
+    showFormStatus('error', 'Votre message doit contenir au moins 10 caractères.');
+    return;
+  }
+
   const orig = btn.innerHTML;
-  btn.innerHTML = '✓ Message envoyé !';
-  btn.style.background = 'var(--success)';
-  btn.style.color = '#070b14';
+  btn.innerHTML = '⏳ Envoi en cours…';
   btn.disabled = true;
-  setTimeout(() => {
+  clearFormStatus();
+
+  // Formulaire non configuré → message d'erreur explicite
+  if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.disabled = false;
+      showFormStatus('error',
+        'Le formulaire n\'est pas encore configuré. Contactez-moi directement : lahatrariantsoaa@gmail.com');
+    }, 500);
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name:    form.name.value,
+        email:   form.email.value,
+        subject: form.subject?.value || '(sans sujet)',
+        message: form.message.value,
+      }),
+    });
+
+    if (response.ok) {
+      btn.innerHTML = '✓ Message envoyé !';
+      // Utiliser la valeur hex directe (les variables CSS ne fonctionnent pas en style inline JS)
+      btn.style.background = '#34d399';
+      btn.style.color = '#070b14';
+      showFormStatus('success',
+        'Merci ! Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.');
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        form.reset();
+        clearFormStatus();
+      }, 5000);
+    } else {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data.error || 'Réponse serveur invalide');
+    }
+  } catch (err) {
     btn.innerHTML = orig;
-    btn.style.background = '';
-    btn.style.color = '';
     btn.disabled = false;
-    e.target.reset();
-  }, 3000);
+    showFormStatus('error',
+      'Une erreur est survenue. Réessayez ou contactez-moi directement : lahatrariantsoaa@gmail.com');
+  }
 });
 
 // ── Hero scroll arrow ────────────────────────────────────────────

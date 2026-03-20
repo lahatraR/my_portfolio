@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Riantsoa RAMANAMPAMONJY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:    #1a56db;
+      --accent-bg: #eff6ff;
+      --dark:      #0f172a;
+      --body:      #1e293b;
+      --muted:     #64748b;
+      --border:    #e2e8f0;
+      --bg:        #ffffff;
+      --tag-bg:    #f1f5f9;
+    }
+
+    html { font-size: 10.5pt; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.55;
+      padding: 0;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== PAGE LAYOUT ===== */
+    .page {
+      max-width: 21cm;
+      margin: 0 auto;
+      padding: 1.6cm 1.8cm 1.6cm 1.8cm;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2.5px solid var(--accent);
+      margin-bottom: 1.1rem;
+    }
+
+    .header__name {
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .header__title {
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 0.2rem;
+      letter-spacing: 0.2px;
+    }
+
+    .header__contact {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+
+    .header__contact a { color: var(--muted); }
+    .header__contact a:hover { color: var(--accent); }
+
+    .header__contact span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .header__photo {
+      width: 82px;
+      height: 82px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    /* ===== LAYOUT: 2 COLONNES ===== */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 1.4rem;
+    }
+
+    /* ===== SECTION ===== */
+    .section { margin-bottom: 1rem; }
+
+    .section__title {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent-bg);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.65rem;
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary {
+      font-size: 9.2pt;
+      color: var(--body);
+      line-height: 1.6;
+      background: var(--accent-bg);
+      border-left: 3px solid var(--accent);
+      padding: 0.6rem 0.75rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ===== EXPERIENCE / TIMELINE ===== */
+    .exp { margin-bottom: 0.9rem; }
+
+    .exp__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .exp__title {
+      font-size: 9.8pt;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .exp__company {
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .exp__meta {
+      font-size: 8pt;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .exp__meta .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 7pt;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-bottom: 2px;
+    }
+
+    .exp__tasks {
+      margin: 0.4rem 0 0.4rem 1rem;
+      font-size: 8.8pt;
+    }
+
+    .exp__tasks li {
+      margin-bottom: 0.2rem;
+      color: var(--body);
+    }
+
+    .exp__tasks li strong { color: var(--dark); }
+
+    .exp__stack {
+      font-size: 7.8pt;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.3rem;
+    }
+
+    .exp__stack span {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ===== PROJECTS ===== */
+    .project { margin-bottom: 0.7rem; }
+
+    .project__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .project__name {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .project__link {
+      font-size: 7.8pt;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project__desc {
+      font-size: 8.5pt;
+      color: var(--body);
+      margin: 0.15rem 0 0.25rem;
+    }
+
+    .project__stack {
+      font-size: 7.5pt;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar .section__title { color: var(--dark); border-color: var(--border); }
+
+    /* ===== SKILLS SIDEBAR ===== */
+    .skill-group { margin-bottom: 0.75rem; }
+
+    .skill-group__label {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+
+    .skill-tag {
+      font-size: 7.5pt;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 5px;
+      color: var(--body);
+    }
+
+    .skill-tag--core {
+      background: var(--accent-bg);
+      border-color: #bfdbfe;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ===== EDUCATION SIDEBAR ===== */
+    .edu { margin-bottom: 0.75rem; }
+
+    .edu__degree {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    .edu__school {
+      font-size: 8pt;
+      color: var(--accent);
+      margin: 0.1rem 0;
+    }
+
+    .edu__year {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .edu__note {
+      font-size: 7.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
+    /* ===== LANGUAGES ===== */
+    .lang-list { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .lang-item { display: flex; justify-content: space-between; align-items: center; }
+
+    .lang-name { font-size: 8.5pt; font-weight: 500; color: var(--dark); }
+
+    .lang-level {
+      font-size: 7.5pt;
+      color: var(--muted);
+      background: var(--tag-bg);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* ===== DIVIDER ===== */
+    .exp-divider {
+      border: none;
+      border-top: 1px dashed var(--border);
+      margin: 0.7rem 0;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      html { font-size: 9.8pt; }
+
+      body { background: #fff; }
+
+      .page {
+        padding: 1cm 1.2cm;
+        max-width: 100%;
+      }
+
+      a { color: inherit !important; text-decoration: none !important; }
+
+      .header__photo { display: block; }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    /* ===== SCREEN only ===== */
+    @media screen {
+      body { background: #f8fafc; }
+      .page {
+        margin: 1.5rem auto;
+        box-shadow: 0 4px 24px rgba(0,0,0,.10);
+        border-radius: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="header">
+    <div>
+      <div class="header__name">Riantsoa RAMANAMPAMONJY</div>
+      <div class="header__title">Développeur Full-Stack — PHP · JavaScript · TypeScript</div>
+      <div class="header__contact">
+        <span>📍 Val-d'Oise (Cergy), France &nbsp;|&nbsp; 📞 <a href="tel:+33763135896">+33 7 63 13 58 96</a></span>
+        <span>✉ <a href="mailto:lahatrariantsoaa@gmail.com">lahatrariantsoaa@gmail.com</a>
+          &nbsp;|&nbsp; 🔗 <a href="https://www.linkedin.com/in/riantsoalahatra" target="_blank">linkedin.com/in/riantsoalahatra</a></span>
+        <span>⌥ <a href="https://github.com/lahatraR" target="_blank">github.com/lahatraR</a>
+          &nbsp;·&nbsp; <a href="https://github.com/LahatraRiantsoa" target="_blank">github.com/LahatraRiantsoa</a></span>
+      </div>
+    </div>
+    <img src="RR.jpg" alt="Riantsoa RAMANAMPAMONJY" class="header__photo">
+  </header>
+
+  <!-- ══════════ RÉSUMÉ ══════════ -->
+  <div class="summary" style="margin-bottom:1rem;">
+    Développeur Full-Stack avec <strong>3+ ans d'expérience</strong> sur des projets web B2B, des plateformes métier
+    et des solutions géospatiales en production. Solide expertise backend PHP/JavaScript/TypeScript, REST API et bases
+    de données relationnelles. Opérationnel en environnement Agile/Scrum. Projets livrés et déployés pour des clients
+    en France et à Madagascar. Actuellement en <strong>Bachelor Coordinateur de Projets Informatiques à Ingetis
+    Paris</strong> — recherche une <strong>alternance ou un stage dès maintenant</strong>.
+  </div>
+
+  <!-- ══════════ 2-COL LAYOUT ══════════ -->
+  <div class="layout">
+
+    <!-- ░░░░ COLONNE PRINCIPALE ░░░░ -->
+    <main>
+
+      <!-- EXPÉRIENCES -->
+      <section class="section">
+        <div class="section__title">Expériences professionnelles</div>
+
+        <!-- Network Systems -->
+        <div class="exp">
+          <div class="exp__header">
+            <div>
+              <div class="exp__title">Développeur Full-Stack</div>
+              <div class="exp__company">Network Systems &mdash; Paris, France</div>
+            </div>
+            <div class="exp__meta">
+              <div class="badge">En cours</div><br>
+              Nov. 2025 – Présent
+            </div>
+          </div>
+          <ul class="exp__tasks">
+            <li>Reconstruit <strong>Geotech-Vigis</strong> en WordPress sur-mesure : thème custom, architecture de pages,
+              optimisation SEO &rarr; <a href="https://geotech.isphers.org" target="_blank">geotech.isphers.org</a></li>
+            <li>Développé <strong>Homi by Isphers</strong>, application TypeScript de gestion de domiciles déployée en production
+              sur GitHub Pages</li>
+            <li>Intégré nouvelles fonctionnalités et composants UI pour <strong>Valoria Capital</strong>
+              (<a href="https://valoriacapital.fr" target="_blank">valoriacapital.fr</a>)</li>
+          </ul>
+          <div class="exp__stack">
+            <span>TypeScript</span><span>WordPress</span><span>PHP</span>
+            <span>JavaScript</span><span>CSS3</span><span>Git</span>
+          </div>
+        </div>
+
+        <hr class="exp-divider">
+
+        <!-- GeoMadagascar -->
+        <div class="exp">
+          <div class="exp__header">
+            <div>
+              <div class="exp__title">Développeur Full-Stack</div>
+              <div class="exp__company">GeoMadagascar &mdash; Madagascar</div>
+            </div>
+            <div class="exp__meta">Sept. 2021 – Août 2022</div>
+          </div>
+          <ul class="exp__tasks">
+            <li>Conçu et livré <strong>ConsomyZone</strong> (<a href="https://www.consomyzone.com" target="_blank">consomyzone.com</a>)
+              — plateforme de cartographie interactive avec intégration d'APIs géographiques, mise en production</li>
+            <li>Construit le backend PHP et la gestion de données spatiales en MySQL pour clients institutionnels</li>
+            <li>Développé des modules de visualisation géospatiale réutilisés sur plusieurs projets</li>
+          </ul>
+          <div class="exp__stack">
+            <span>PHP</span><span>JavaScript</span><span>MySQL</span>
+            <span>API Géographiques</span><span>Git</span>
+          </div>
+        </div>
+
+        <hr class="exp-divider">
+
+        <!-- Wylog -->
+        <div class="exp">
+          <div class="exp__header">
+            <div>
+              <div class="exp__title">Développeur Full-Stack</div>
+              <div class="exp__company">Wylog &mdash; France</div>
+            </div>
+            <div class="exp__meta">Sept. 2019 – Déc. 2021</div>
+          </div>
+          <ul class="exp__tasks">
+            <li>Développé et maintenu <strong>DevInsider</strong> (<a href="https://www.devinsider.com" target="_blank">devinsider.com</a>)
+              — plateforme web B2B pour développeurs et décideurs IT</li>
+            <li>Optimisé des API REST et des requêtes SQL critiques (MySQL, PostgreSQL),
+              réduisant les temps de réponse backend</li>
+            <li>Participé à 8+ sprints Agile : daily meetings, sprint planning, code reviews en équipe</li>
+          </ul>
+          <div class="exp__stack">
+            <span>PHP</span><span>Java</span><span>C#</span><span>JavaScript</span>
+            <span>MySQL</span><span>PostgreSQL</span><span>Docker</span><span>Postman</span><span>Git</span>
+          </div>
+        </div>
+
+        <hr class="exp-divider">
+
+        <!-- Gascom -->
+        <div class="exp">
+          <div class="exp__header">
+            <div>
+              <div class="exp__title">Technicien Support Informatique</div>
+              <div class="exp__company">Gascom &mdash; Madagascar</div>
+            </div>
+            <div class="exp__meta">2022 – 2023</div>
+          </div>
+          <ul class="exp__tasks">
+            <li>Géré et maintenu un parc de 50+ postes informatiques</li>
+            <li>Réduit les incidents techniques par une maintenance préventive systématique</li>
+          </ul>
+          <div class="exp__stack">
+            <span>Support IT</span><span>Maintenance</span><span>Réseau</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETS -->
+      <section class="section">
+        <div class="section__title">Projets techniques</div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">🏠 Homi by Isphers</span>
+            <a class="project__link" href="https://github.com/lahatraR/HomiByIsphers" target="_blank">github.com/lahatraR/HomiByIsphers</a>
+          </div>
+          <div class="project__desc">Application web TypeScript de gestion de domiciles — déployée en production sur GitHub Pages.</div>
+          <div class="project__stack">TypeScript · HTML5 · CSS3 · GitHub Pages</div>
+        </div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">🌍 Geotech-Vigis</span>
+            <a class="project__link" href="https://geotech.isphers.org" target="_blank">geotech.isphers.org</a>
+          </div>
+          <div class="project__desc">Refonte complète d'un site géotechnique en WordPress — thème sur-mesure, SEO, performance.</div>
+          <div class="project__stack">WordPress · PHP · CSS3 · SEO</div>
+        </div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">🗺️ ConsomyZone</span>
+            <a class="project__link" href="https://www.consomyzone.com" target="_blank">consomyzone.com</a>
+          </div>
+          <div class="project__desc">Plateforme de cartographie interactive avec intégration d'APIs géospatiales — livrée en production.</div>
+          <div class="project__stack">PHP · JavaScript · MySQL · API Géo</div>
+        </div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">📰 DevInsider</span>
+            <a class="project__link" href="https://www.devinsider.com" target="_blank">devinsider.com</a>
+          </div>
+          <div class="project__desc">Plateforme B2B pour développeurs et décideurs IT — développement backend et maintenance.</div>
+          <div class="project__stack">PHP · JavaScript · MySQL · REST API</div>
+        </div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">✅ TaskFlow</span>
+            <a class="project__link" href="https://github.com/LahatraRiantsoa/taskFlow" target="_blank">github.com/LahatraRiantsoa/taskFlow</a>
+          </div>
+          <div class="project__desc">Application de gestion de tâches CRUD avec persistance MySQL.</div>
+          <div class="project__stack">PHP · MySQL · HTML5 · CSS3</div>
+        </div>
+
+        <div class="project">
+          <div class="project__header">
+            <span class="project__name">🔄 CI/CD Pipeline — Node.js</span>
+            <a class="project__link" href="https://github.com/LahatraRiantsoa/tp-node-ci-cd" target="_blank">github.com/LahatraRiantsoa/tp-node-ci-cd</a>
+          </div>
+          <div class="project__desc">Pipeline CI/CD complet : tests automatisés, déploiement continu, configuration GitHub Actions.</div>
+          <div class="project__stack">Node.js · GitHub Actions · Docker · CI/CD</div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ░░░░ SIDEBAR ░░░░ -->
+    <aside class="sidebar">
+
+      <!-- COMPÉTENCES -->
+      <section class="section">
+        <div class="section__title">Compétences</div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">Langages</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--core">PHP</span>
+            <span class="skill-tag skill-tag--core">JavaScript</span>
+            <span class="skill-tag skill-tag--core">TypeScript</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--core">REST API</span>
+            <span class="skill-tag">PHP MVC</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Microservices</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">Bases de données</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--core">MySQL</span>
+            <span class="skill-tag skill-tag--core">PostgreSQL</span>
+            <span class="skill-tag">Oracle DB</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">DevOps & Outils</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--core">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Postman</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">CMS & Plateformes</div>
+          <div class="skill-tags">
+            <span class="skill-tag">WordPress</span>
+            <span class="skill-tag">GitHub Pages</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__label">Méthodes</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag--core">Agile/Scrum</span>
+            <span class="skill-tag">Sprint Planning</span>
+            <span class="skill-tag">Coordination IT</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMATION -->
+      <section class="section">
+        <div class="section__title">Formation</div>
+
+        <div class="edu">
+          <div class="edu__degree">Bachelor Coordinateur<br>de Projets Informatiques</div>
+          <div class="edu__school">Ingetis — Paris</div>
+          <div class="edu__year">2025 – 2026</div>
+          <div class="edu__note">En cours d'obtention</div>
+        </div>
+
+        <div class="edu">
+          <div class="edu__degree">Diplôme en Science<br>et Technologie</div>
+          <div class="edu__school">IT University — Madagascar</div>
+          <div class="edu__year">2022</div>
+          <div class="edu__note">Projet : app web + BDD relationnelle</div>
+        </div>
+
+        <div class="edu">
+          <div class="edu__degree">Développeur Web Bénévole</div>
+          <div class="edu__school">Asso. locale (École 42) — Paris</div>
+          <div class="edu__year">2023 – 2024</div>
+          <div class="edu__note">Projets communautaires web</div>
+        </div>
+      </section>
+
+      <!-- LANGUES -->
+      <section class="section">
+        <div class="section__title">Langues</div>
+        <div class="lang-list">
+          <div class="lang-item">
+            <span class="lang-name">Français</span>
+            <span class="lang-level">Courant</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Malagasy</span>
+            <span class="lang-level">Natif</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Anglais</span>
+            <span class="lang-level">Professionnel</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIENS -->
+      <section class="section">
+        <div class="section__title">Liens</div>
+        <div style="font-size:7.8pt; display:flex; flex-direction:column; gap:0.3rem;">
+          <a href="https://www.linkedin.com/in/riantsoalahatra" target="_blank">🔗 LinkedIn</a>
+          <a href="https://github.com/lahatraR" target="_blank">⌥ GitHub — lahatraR</a>
+          <a href="https://github.com/LahatraRiantsoa" target="_blank">⌥ GitHub — LahatraRiantsoa</a>
+        </div>
+      </section>
+
+    </aside>
+  </div><!-- end layout -->
+
+</div><!-- end page -->
+</body>
+</html>

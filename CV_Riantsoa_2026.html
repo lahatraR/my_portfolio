@@ -303,6 +303,30 @@
       border-radius: 3px;
     }
 
+    /* ===== AVAILABILITY BADGE ===== */
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      color: #065f46;
+      font-size: 8.5pt;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 0.5rem;
+      letter-spacing: 0.2px;
+    }
+    .avail-badge::before {
+      content: '';
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      flex-shrink: 0;
+    }
+
     /* ===== DIVIDER ===== */
     .exp-divider {
       border: none;
@@ -350,6 +374,7 @@
     <div>
       <div class="header__name">Riantsoa RAMANAMPAMONJY</div>
       <div class="header__title">Développeur Full-Stack — PHP · JavaScript · TypeScript</div>
+      <div class="avail-badge">Disponible en alternance Master — Septembre 2026</div>
       <div class="header__contact">
         <span>📍 Val-d'Oise (Cergy), France &nbsp;|&nbsp; 📞 <a href="tel:+33763135896">+33 7 63 13 58 96</a></span>
         <span>✉ <a href="mailto:lahatrariantsoaa@gmail.com">lahatrariantsoaa@gmail.com</a>
@@ -367,7 +392,7 @@
     et des solutions géospatiales en production. Solide expertise backend PHP/JavaScript/TypeScript, REST API et bases
     de données relationnelles. Opérationnel en environnement Agile/Scrum. Projets livrés et déployés pour des clients
     en France et à Madagascar. Actuellement en <strong>Bachelor Coordinateur de Projets Informatiques à Ingetis
-    Paris</strong> — recherche une <strong>alternance ou un stage dès maintenant</strong>.
+    Paris</strong> — intègre en Septembre 2026 un <strong>Mastère Développement Logiciel (Expert en Architecture &amp; Développement Logiciel)</strong> et recherche une <strong>alternance Master</strong>.
   </div>
 
   <!-- ══════════ 2-COL LAYOUT ══════════ -->
@@ -610,6 +635,13 @@
       <!-- FORMATION -->
       <section class="section">
         <div class="section__title">Formation</div>
+
+        <div class="edu" style="background:#ecfdf5; border-left:2.5px solid #10b981; padding:0.4rem 0.6rem; border-radius:0 4px 4px 0; margin-bottom:0.75rem;">
+          <div class="edu__degree" style="color:#065f46;">Mastère Développement Logiciel</div>
+          <div class="edu__school" style="color:#059669;">Expert en Architecture &amp; Dev. Logiciel</div>
+          <div class="edu__year">Sept. 2026</div>
+          <div class="edu__note" style="color:#065f46; font-weight:600;">Alternance — à venir</div>
+        </div>
 
         <div class="edu">
           <div class="edu__degree">Bachelor Coordinateur<br>de Projets Informatiques</div>

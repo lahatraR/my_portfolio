@@ -6,37 +6,37 @@ const navMenu = document.querySelector('.nav__menu');
 
 const modeContent = {
   overview: {
-    heroTitle: 'Software Engineer orienté données',
-    heroLead: 'Je conçois des applications web et des flux de données fiables, de la modélisation PostgreSQL au déploiement automatisé.',
+    heroTitle: 'Software Engineer',
+    heroLead: 'Je conçois et développe des applications web fiables, avec une attention particulière portée aux APIs, à la qualité du code et à la livraison.',
     primaryCta: 'Voir les projets',
     secondaryCta: 'Télécharger le CV',
-    cv: 'CV_RAMANAMPAMONJY_Developpeur.pdf',
+    cv: 'CV_RAMANAMPAMONJY_Riantsoa_Fullstack_Alternance.pdf',
     skillPrimaryTitle: 'Software Engineering',
     skillPrimaryText: 'Applications web, APIs et livraison logicielle.',
-    skillSecondaryTitle: 'Data Engineering',
-    skillSecondaryText: 'Modèles fiables et traitements automatisés.'
+    skillSecondaryTitle: 'Architecture & Cloud Native',
+    skillSecondaryText: 'Des fondations cloud-native en cours d’approfondissement.'
   },
   software: {
-    heroTitle: 'Software Engineer back-end / full-stack',
+    heroTitle: 'Software Engineer orienté produit',
     heroLead: 'Je développe des applications web maintenables, de l’API Symfony à l’interface React, avec Docker et CI/CD.',
     primaryCta: 'Voir mes projets logiciels',
-    secondaryCta: 'Télécharger le CV développeur',
-    cv: 'CV_RAMANAMPAMONJY_Developpeur.pdf',
+    secondaryCta: 'Télécharger le CV',
+    cv: 'CV_RAMANAMPAMONJY_Riantsoa_Fullstack_Alternance.pdf',
     skillPrimaryTitle: 'Software Engineering',
     skillPrimaryText: 'Une pratique orientée produit, API et mise en production.',
-    skillSecondaryTitle: 'Fondations data',
-    skillSecondaryText: 'Des bases solides pour des applications fiables.'
+    skillSecondaryTitle: 'Qualité & delivery',
+    skillSecondaryText: 'Docker, CI/CD, tests et pratiques Agile.'
   },
-  data: {
-    heroTitle: 'Data Engineer en spécialisation',
-    heroLead: 'Je construis des chaînes d’ingestion et des modèles relationnels qui rendent les données exploitables et maintenables.',
-    primaryCta: 'Voir mes projets data',
-    secondaryCta: 'Télécharger le CV data',
-    cv: 'CV_RAMANAMPAMONJY_DataEngineer.pdf',
-    skillPrimaryTitle: 'Data Engineering',
-    skillPrimaryText: 'Ingestion, modélisation SQL et automatisation des traitements.',
-    skillSecondaryTitle: 'Software Engineering',
-    skillSecondaryText: 'Le socle applicatif nécessaire pour livrer ces flux.'
+  architecture: {
+    heroTitle: 'Software Engineer · Architecture Cloud',
+    heroLead: 'Je construis mon expertise en architecture logicielle et cloud-native pour concevoir des services évolutifs, observables et faciles à livrer.',
+    primaryCta: 'Voir les projets logiciels',
+    secondaryCta: 'Télécharger le CV',
+    cv: 'CV_RAMANAMPAMONJY_Riantsoa_Fullstack_Alternance.pdf',
+    skillPrimaryTitle: 'Architecture logicielle',
+    skillPrimaryText: 'Découpage des services, APIs et conception maintenable.',
+    skillSecondaryTitle: 'Cloud Native',
+    skillSecondaryText: 'Docker, CI/CD et fondamentaux des environnements cloud.'
   }
 };
 
